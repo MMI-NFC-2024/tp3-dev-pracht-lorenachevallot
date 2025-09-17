@@ -38,7 +38,7 @@ import Layout from "../layouts/Layout.astro";
 
         <script>
             const select = document.querySelector("#species");
-            const iframe = document.querySelector("#speciesFrame");
+            const iframe = document.querySelector("#speciesFrame") as HTMLIFrameElement | null;
             select?.addEventListener("change", (evt) => {
                 const value = (evt.target as HTMLSelectElement).value;
                 if (iframe && value) {
