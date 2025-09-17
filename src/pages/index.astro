@@ -9,36 +9,27 @@ import Layout from "../layouts/Layout.astro";
     Menu
   </h1>
 
-  <nav class="mt-20">
-    <ul class="flex flex-col gap-8 justify-center items-center">
-      <li>
-        <a
-          href="/species/Adelie"
-          class="text-xl font-semibold text-purple-50 bg-gradient-to-r from-purple-500 to-fuchsia-500 hover:from-purple-600 hover:to-fuchsia-600 px-6 py-3 rounded-xl shadow-lg transition-all duration-200 transform hover:scale-105"
-          >Manchot Adélie</a
-        >
-      </li>
-      <li>
-        <a
-          href="/species/Chinstrap"
-          class="text-xl font-semibold text-purple-50 bg-gradient-to-r from-purple-500 to-fuchsia-500 hover:from-purple-600 hover:to-fuchsia-600 px-6 py-3 rounded-xl shadow-lg transition-all duration-200 transform hover:scale-105"
-          >Manchot Chinstrap</a
-        >
-      </li>
-      <li>
-        <a
-          href="/species/Gentoo"
-          class="text-xl font-semibold text-purple-50 bg-gradient-to-r from-purple-500 to-fuchsia-500 hover:from-purple-600 hover:to-fuchsia-600 px-6 py-3 rounded-xl shadow-lg transition-all duration-200 transform hover:scale-105"
-          >Manchot Gentoo</a
-        >
-      </li>
-      <li>
-        <a
-          href="/test-iframe"
-          class="text-xl font-semibold text-purple-50 bg-gradient-to-r from-purple-500 to-fuchsia-500 hover:from-purple-600 hover:to-fuchsia-600 px-6 py-3 rounded-xl shadow-lg transition-all duration-200 transform hover:scale-105"
-          >Iframe</a
-        >
-      </li>
-    </ul>
-  </nav>
+  <div class="flex flex-col items-center mt-20 gap-8">
+    <label for="species" class="text-xl font-semibold mb-2">
+      Choisissez une espece :
+    </label>
+
+    <select
+      id="species"
+      class="text-lg px-4 py-2 rounded-xl shadow-md bg-purple-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
+    >
+      <option value="Adelie">Adelie</option>
+      <option value="Chinstrap">Chinstrap</option>
+      <option value="Gentoo">Gentoo</option>
+    </select>
+
+    <script>
+      document.querySelector("#species")?.addEventListener("change", (evt) => {
+        const value = (evt.target as HTMLSelectElement).value;
+        if (value) {
+          location.pathname = "/species/" + value;
+        }
+      });
+    </script>
+  </div>
 </Layout>
