@@ -29,7 +29,6 @@ import Layout from "../layouts/Layout.astro";
         <div class="w-full max-w-5xl">
             <iframe
                 id="speciesFrame"
-                name="speciesFrame"
                 src="/species/Adelie"
                 class="w-full border-0 rounded-xl shadow-xl overflow-hidden bg-white"
                 scrolling="no"
@@ -37,11 +36,11 @@ import Layout from "../layouts/Layout.astro";
         </div>
 
         <script>
-            const select = document.querySelector("#species");
-            const iframe = document.querySelector("#speciesFrame") as HTMLIFrameElement | null;
+            const select = document.getElementById("species");
+            const iframe = document.getElementById("speciesFrame");
             select?.addEventListener("change", (evt) => {
                 const value = (evt.target as HTMLSelectElement).value;
-                if (iframe && value) {
+                if (iframe instanceof HTMLIFrameElement && value) {
                     iframe.src = value;
                 }
             });
