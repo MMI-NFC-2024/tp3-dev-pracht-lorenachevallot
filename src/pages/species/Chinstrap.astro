@@ -4,10 +4,18 @@ import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout>
-    <h1
-        class="text-4xl md:text-5xl font-extrabold text-gray-900 text-center mb-12 select-none mt-16"
+    <div
+        class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-purple-400 px-2"
     >
-        Penguins Chinstrap
-    </h1>
-    <GraphicSpecies species="Chinstrap" />
+        <h1
+            class="text-4xl md:text-5xl font-extrabold text-purple-700 text-center mb-12 select-none mt-20 drop-shadow-md"
+        >
+            Penguins Chinstrap
+        </h1>
+        <div
+            class="w-full max-w-3xl rounded-3xl shadow-lg overflow-hidden bg-white bg-opacity-90 backdrop-blur-sm transition-all duration-300 p-6"
+        >
+            <GraphicSpecies species="Chinstrap" />
+        </div>
+    </div>
 </Layout>
