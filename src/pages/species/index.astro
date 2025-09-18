@@ -1,0 +1,35 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+  <h1
+    class="text-5xl md:text-6xl font-black text-purple-800 text-center mb-16 select-none mt-20 drop-shadow-lg"
+  >
+    Menu
+  </h1>
+
+  <div class="flex flex-col items-center mt-20 gap-8">
+    <label for="species" class="text-xl font-semibold mb-2">
+      Choisissez une espece :
+    </label>
+
+    <select
+      id="species"
+      class="text-lg px-4 py-2 rounded-xl shadow-md bg-purple-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
+    >
+      <option value="Adelie">Adelie</option>
+      <option value="Chinstrap">Chinstrap</option>
+      <option value="Gentoo">Gentoo</option>
+    </select>
+
+    <script>
+      document.querySelector("#species")?.addEventListener("change", (evt) => {
+        const value = (evt.target as HTMLSelectElement).value;
+        if (value) {
+          location.pathname = "/species/" + value;
+        }
+      });
+    </script>
+  </div>
+</Layout>

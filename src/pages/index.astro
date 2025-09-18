@@ -3,33 +3,49 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <h1
-    class="text-5xl md:text-6xl font-black text-purple-800 text-center mb-16 select-none mt-20 drop-shadow-lg"
+  <div
+    class="!flex !flex-col !items-center !justify-center !min-h-screen !bg-gradient-to-br !from-blue-50 !to-purple-400 !py-20 !px-2"
   >
-    Menu
-  </h1>
-
-  <div class="flex flex-col items-center mt-20 gap-8">
-    <label for="species" class="text-xl font-semibold mb-2">
-      Choisissez une espece :
-    </label>
-
-    <select
-      id="species"
-      class="text-lg px-4 py-2 rounded-xl shadow-md bg-purple-100 focus:outline-none focus:ring-2 focus:ring-purple-400"
+    <h1
+      class="!text-5xl !md:text-6xl !font-black !text-purple-700 !text-center !mb-12 !select-none !mt-20 !drop-shadow-md"
     >
-      <option value="Adelie">Adelie</option>
-      <option value="Chinstrap">Chinstrap</option>
-      <option value="Gentoo">Gentoo</option>
-    </select>
-
-    <script>
-      document.querySelector("#species")?.addEventListener("change", (evt) => {
-        const value = (evt.target as HTMLSelectElement).value;
-        if (value) {
-          location.pathname = "/species/" + value;
-        }
-      });
-    </script>
+      Menu des pages
+    </h1>
+    <nav class="!flex !flex-col !items-center !gap-8 !mt-10 !w-full">
+      <ul class="!flex !flex-col !gap-6 !w-full !max-w-md">
+        <li>
+          <a
+            href="/species"
+            class="!block !w-full !text-xl !font-semibold !text-purple-800 !bg-white !bg-opacity-90 !hover:bg-purple-100 !px-6 !py-4 !rounded-2xl !shadow-lg !transition-all !duration-200 !transform !hover:scale-105 !text-center !backdrop-blur-sm !border !border-purple-200"
+          >
+            Page des espèces version 1
+          </a>
+        </li>
+        <li>
+          <a
+            href="/test-iframe"
+            class="!block !w-full !text-xl !font-semibold !text-purple-800 !bg-white !bg-opacity-90 !hover:bg-purple-100 !px-6 !py-4 !rounded-2xl !shadow-lg !transition-all !duration-200 !transform !hover:scale-105 !text-center !backdrop-blur-sm !border !border-purple-200"
+          >
+            Page des espèces version 2
+          </a>
+        </li>
+        <li>
+          <a
+            href="/slider"
+            class="!block !w-full !text-xl !font-semibold !text-purple-800 !bg-white !bg-opacity-90 !hover:bg-purple-100 !px-6 !py-4 !rounded-2xl !shadow-lg !transition-all !duration-200 !transform !hover:scale-105 !text-center !backdrop-blur-sm !border !border-purple-200"
+          >
+            Page des espèces version 3
+          </a>
+        </li>
+        <li>
+          <a
+            href="/accessible"
+            class="!block !w-full !text-xl !font-semibold !text-purple-800 !bg-white !bg-opacity-90 !hover:bg-purple-100 !px-6 !py-4 !rounded-2xl !shadow-lg !transition-all !duration-200 !transform !hover:scale-105 !text-center !backdrop-blur-sm !border !border-purple-200"
+          >
+            Page des espèces version 4
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </Layout>

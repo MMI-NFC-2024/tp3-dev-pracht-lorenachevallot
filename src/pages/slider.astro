@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+import GraphicSpecies from "../components/GraphicSpecies.astro";
+---
+
+<Layout>
+    <div
+        class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-purple-400 py-16"
+    >
+        <h1
+            class="text-4xl md:text-5xl font-extrabold text-gray-900 text-center mb-10 select-none"
+        >
+            Menu des especes
+        </h1>
+
+        <div class="mb-12 flex flex-col items-center gap-4">
+            <label for="species" class="text-xl font-semibold text-gray-800">
+                Choisissez une espece :
+            </label>
+            <select
+                id="species"
+                class="px-6 py-3 rounded-xl shadow-md bg-white text-gray-900 font-medium text-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+            >
+                <option value="/species/Adelie">Manchot Adelie</option>
+                <option value="/species/Gentoo">Manchot Gentoo</option>
+                <option value="/species/Chinstrap">Manchot Chinstrap</option>
+            </select>
+        </div>
+
+        <div class="relative w-full max-w-xl overflow-x-auto scroll-smooth">
+            <div
+                id="carousel-content"
+                class="flex gap-32 snap-x snap-mandatory"
+            >
+                <div id="adelie" class="flex-shrink-0 min-w-full snap-start">
+                    <GraphicSpecies species="Adelie" />
+                </div>
+                <div id="gentoo" class="flex-shrink-0 min-w-full snap-start">
+                    <GraphicSpecies species="Gentoo" />
+                </div>
+                <div id="chinstrap" class="flex-shrink-0 min-w-full snap-start">
+                    <GraphicSpecies species="Chinstrap" />
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<script>
+    const select = document.getElementById("species");
+    select?.addEventListener("change", (e) => {
+        const value = select instanceof HTMLSelectElement ? select.value : "";
+        let id = "adelie";
+        if (value.toLowerCase().includes("gentoo")) id = "gentoo";
+        else if (value.toLowerCase().includes("chinstrap")) id = "chinstrap";
+        location.hash = id;
+    });
+</script>

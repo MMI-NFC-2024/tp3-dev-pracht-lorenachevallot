@@ -4,33 +4,35 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout>
     <div
-        class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-purple-400 py-16"
+        class="!flex !flex-col !items-center !justify-center !min-h-screen !bg-gradient-to-br !from-blue-50 !to-purple-400 !py-20 !px-2"
     >
         <h1
-            class="text-4xl md:text-5xl font-extrabold text-gray-900 text-center mb-10 select-none"
+            class="!text-4xl !md:text-5xl !font-extrabold !text-purple-700 !text-center !mb-12 !select-none !drop-shadow-md"
         >
-            Menu des especes
+            Menu des espèces
         </h1>
-
-        <div class="mb-12 flex flex-col items-center gap-4">
-            <label for="species" class="text-xl font-semibold text-gray-800">
-                Choisissez une espece :
-            </label>
+        <div class="!mb-12 !flex !flex-col !items-center !gap-6">
+            <label
+                for="species"
+                class="!text-xl !font-semibold !text-purple-900"
+                >Choisissez une espèce :</label
+            >
             <select
                 id="species"
-                class="px-6 py-3 rounded-xl shadow-md bg-white text-gray-900 font-medium text-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                class="!px-6 !py-3 !rounded-2xl !shadow-md !bg-white/80 !text-purple-900 !font-medium !text-lg !focus:!outline-none !focus:!ring-4 !focus:!ring-fuchsia-200 !transition-all !duration-200"
             >
                 <option value="/species/Adelie">Manchot Adelie</option>
                 <option value="/species/Chinstrap">Manchot Chinstrap</option>
                 <option value="/species/Gentoo">Manchot Gentoo</option>
             </select>
         </div>
-
-        <div class="w-full max-w-5xl">
+        <div
+            class="!w-full !max-w-5xl !rounded-3xl !shadow-lg !overflow-hidden !bg-white/80 !backdrop-blur-sm !transition-all !duration-300"
+        >
             <iframe
                 id="speciesFrame"
                 src="/species/Adelie"
-                class="w-full border-0 rounded-xl shadow-xl overflow-hidden bg-white"
+                class="!w-full !border-0 !rounded-3xl !shadow-xl !overflow-hidden !bg-white/80 !transition-all !duration-300"
                 scrolling="no"
                 height="700"></iframe>
         </div>
@@ -39,7 +41,8 @@ import Layout from "../layouts/Layout.astro";
             const select = document.getElementById("species");
             const iframe = document.getElementById("speciesFrame");
             select?.addEventListener("change", (evt) => {
-                const value = (evt.target as HTMLSelectElement).value;
+                const value =
+                    select instanceof HTMLSelectElement ? select.value : "";
                 if (iframe instanceof HTMLIFrameElement && value) {
                     iframe.src = value;
                 }
